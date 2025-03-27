@@ -13,7 +13,7 @@ class WSGIServer:
 
     def __init__(self, host, port, application):
         """
-        Initialize the WSGI serverl.
+        Initialize the WSGI server.
 
         Args:
             host (str): IP address of the host machine where the server will run.
@@ -136,7 +136,9 @@ class WSGIServer:
 
         # Add the server headers and headers provided by the WSGI application.
         for header in server_headers + response_headers:
-            self.response_headers += f"{header[0]}: {header[1]}\r\n".encode("utf-8")
+            self.response_headers += f"{header[0]}: {header[1]}\r\n".encode(
+                "utf-8"
+            )
 
         # End the header section with a blank line.
         self.response_headers += b"\r\n"
